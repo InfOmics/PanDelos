@@ -1,2 +1,2 @@
-# PanDelo
-PanDelo: a dictionary-based method for pan-genomic contents discovery
+# PanDelos
+PanDelos: a dictionary-based method for pan-genomic contents discovery
