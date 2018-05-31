@@ -17,7 +17,7 @@ bash pandelos.hs <input.faa> <output_prefix>
 
 The complete set of (gene) sequences `<input.faa>`, belonging to any of the studie genomes, must be provided as a text file.
 For each sequence, two lines are reported in the file. An identification line that is composed of three parts separated by a tabulaiton character. The parts represent the genome identifiers, the gene identifier and the gene product. After the identification line, the complete gene sequence in FASTA amino acid format is reported in a single line. No black lines are admitted between the indetification line and the sequence line, neighter between genes.
-The examples reported in the `examples` folder generate 4 different dataset files, having the `.faa` extension, which can be consulted.
+The examples provided in the `examples` folder generate 4 different dataset files, having the `.faa` extension, which can be consulted.
 
 <hr />
 
@@ -40,6 +40,7 @@ Benchmarks regard 4 datasets from which the pan-genome content has been extracte
 * 14 Xanthomonas campestris
 * 10 Escehrichia coli
 * 64 Mycoplasma
+
 The identifiers of the isolates are stored in the `.list.txt` files.
 Genomes are downloaded from the NCBI repoitories by means of the `download.sh` sciprt in the form of GenBank `gbk` files.
 The script `gbk2ig.py` merge the gbk files and produces a single benchmark file that is used as input for the PanDelos pipeline.
