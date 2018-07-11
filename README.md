@@ -43,6 +43,7 @@ Benchmarks regard 4 datasets from which the pan-genome content has been extracte
 
 The identifiers of the isolates are stored in the `.list.txt` files.
 Genomes are downloaded from the NCBI repoitories by means of the `download.sh` sciprt in the form of GenBank `gbk` files.
+The [efecth](https://www.ncbi.nlm.nih.gov/books/NBK179288/) tool, available via the Entrexz E-Utilities toolkit, must be installed in order to download the required genome files from the NCBI database.
 The script `gbk2ig.py` merge the gbk files and produces a single benchmark file that is used as input for the PanDelos pipeline.
 The script `quality.py` calculates statistics about th eextracted pan-genome content and print them.
 
