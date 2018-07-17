@@ -9,34 +9,49 @@ echo "# This software is under MIT license!                                     
 echo "# Please visit https://github.com/GiugnoLab/PanDelos                           #"
 echo "################################################################################"
 
-sdir=`dirname $0`
+
+sdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
+sdir=`dirname $sdir`
+
+if [ -z "$PANDELOS_PATH"]; then
+	echo "environment variable PANDELOS_PATH not set!"
+	echo "using location: $sdir"
+else
+	echo "using location: $PANDELOS_PATH"
+	sdir="$PANDELOS_PATH"
+fi
+
+
 kk="${sdir}/calculate_k.py"
 ig="${sdir}/ig/ig.jar"
 nc="${sdir}/netclu_ng.py"
 
-if [ -z "$PANDELOS_PATH"]; then
-	echo "environment variable PANDELOS_PATH not set!"
-	if [ ! -f "$ig" ]; then
-		echo "file ig.jar not found in $sdir !"
-		exit
-	fi
-	if [ ! -f "$nc" ]; then
-		echo "file netclu_ng.py not found in $sdir !"
-		exit
-	fi
+
+if [ ! -f "$kk" ]; then
+	echo "ERROR: file calculate_k.py not found in $sdir !"
+	exit
 fi
+if [ ! -f "$ig" ]; then
+	echo "ERROR: file ig.jar not found in $sdir !"
+	exit
+fi
+if [ ! -f "$nc" ]; then
+	echo "ERROR: file netclu_ng.py not found in $sdir !"
+	exit
+fi
+
 
 idb="$1"
 oprefix="$2"
 
 if [ ! -f "$idb" ]; then
-	echo "input dataset file not found: $idb !"
+	echo "ERROR: input dataset file not found: $idb !"
 	echo "usage is: pandelos.sh dataset.faa out_prefix"
 	exit
 fi
 
 if [ -z "$oprefix" ]; then
-	echo "output prefix not given: $oprefix !"
+	echo "ERROR: output prefix not given: $oprefix !"
 	echo "usage is: pandelos.sh dataset.faa out_prefix"
 	exit
 fi
