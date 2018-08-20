@@ -13,6 +13,8 @@ The bash script, `pandelos.sh`, provides the acces point the the PanDelos pipeli
 bash pandelos.hs <input.faa> <output_prefix>
 ```
 
+<hr />
+
 ### Input format
 
 The complete set of (gene) sequences `<input.faa>`, belonging to any of the studie genomes, must be provided as a text file.
@@ -21,9 +23,26 @@ The examples provided in the `examples` folder generate 4 different dataset file
 
 <hr />
 
+### Output files
+
+
+
+<hr />
+
 ## Installation
 ### System requirements
+PanDelos can run on any operating system where Bash, Python 3 (or higher) and Java SE RunTime 8 (or higher) have been previously installed.
+
 ### Compiling the Java source code
+The current repository contains a pre-compiled version of the interal Java labrary needed by PanDelos. The library has been pre-compiled with Java 8, however it can be compiled on the user system by runnig the script `compile.sh` inside the `ig` folder. In case of success, the script replaces the `ig.jar` with a new version. 
+
+Alternatively, you may run the following instruction form the `ig` folder:
+
+```
+javac -classpath ext/commons-io-2.6.jar  -sourcepath ./ infoasys/cli/pangenes/Pangenes.java
+jar cvf ig.jar infoasys/
+```
+The compilation requires that the command `javac` and `jar` are located in your stystem folders.
 
 <hr />
 
@@ -43,7 +62,7 @@ Benchmarks regard 4 datasets from which the pan-genome content has been extracte
 
 The identifiers of the isolates are stored in the `.list.txt` files.
 Genomes are downloaded from the NCBI repoitories by means of the `download.sh` sciprt in the form of GenBank `gbk` files.
-The [efecth](https://www.ncbi.nlm.nih.gov/books/NBK179288/) tool, available via the Entrexz E-Utilities toolkit, must be installed in order to download the required genome files from the NCBI database.
+The [efecth](https://www.ncbi.nlm.nih.gov/books/NBK179288/) tool, available via the Entrez E-Utilities toolkit, must be installed in order to download the required genome files from the NCBI database.
 The script `gbk2ig.py` merge the gbk files and produces a single benchmark file that is used as input for the PanDelos pipeline.
 The script `quality.py` calculates statistics about th eextracted pan-genome content and print them.
 
