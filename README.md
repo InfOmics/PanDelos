@@ -17,14 +17,27 @@ bash pandelos.hs <input.faa> <output_prefix>
 
 ### Input format
 
-The complete set of (gene) sequences `<input.faa>`, belonging to any of the studie genomes, must be provided as a text file.
-For each sequence, two lines are reported in the file. An identification line that is composed of three parts separated by a tabulaiton character. The parts represent the genome identifiers, the gene identifier and the gene product. After the identification line, the complete gene sequence in FASTA amino acid format is reported in a single line. No black lines are admitted between the indetification line and the sequence line, neighter between genes.
+The complete set of (gene) sequences `<input.faa>`, belonging to any of the studied genomes, must be provided as a text file.
+
+
+For each sequence, two lines are reported in the file. An identification line that is composed of three parts separated by a tabulaiton character. The parts represent the genome identifiers, the gene identifier and the gene product. 
+
+After the identification line, the complete gene sequence in FASTA amino acid format is reported in a single line. No black lines are admitted between the indetification line and the sequence line, neighter between genes.
+
 The examples provided in the `examples` folder generate 4 different dataset files, having the `.faa` extension, which can be consulted.
 
 <hr />
 
-### Output files
+### Output format
+The exectution of PanDelos produces an outpu file named `[out_prefix].clus` which reports the gene families retrieved by the software.
+Each row of the output file represented a specific gene family. 
 
+Output identifiers are built wiht the following format:
+```
+gene_identifier@genome_identifier:unique_integer
+```
+
+The fields `gene_identifier` and `genome_identifier` are the same reported in the input file, while the `unique_integer` is used to disitrnghuish multiple copies of the same gene (same gene identifier) wihtin the same genome. The integer starts from 1 and it is incremented according to the order gene are written in the input file.
 
 
 <hr />
@@ -65,6 +78,11 @@ Genomes are downloaded from the NCBI repoitories by means of the `download.sh` s
 The [efecth](https://www.ncbi.nlm.nih.gov/books/NBK179288/) tool, available via the Entrez E-Utilities toolkit, must be installed in order to download the required genome files from the NCBI database.
 The script `gbk2ig.py` merge the gbk files and produces a single benchmark file that is used as input for the PanDelos pipeline.
 The script `quality.py` calculates statistics about th eextracted pan-genome content and print them.
+
+<hr />
+
+## Scanning a GBK folder
+The script `gbk2ig.py` (located inside the `examples` folder) can also be used to analyse a set of genomes provided in GBK format. The script takes as input the folder where the file are stored (every file with extension `.gbk` is taken into account) and the name of an output file. The resultant file can be used as input for the PanDelos pipeline.
 
 <hr />
 
