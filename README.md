@@ -24,21 +24,33 @@ For each sequence, two lines are reported in the file. An identification line th
 
 After the identification line, the complete gene sequence in FASTA amino acid format is reported in a single line. No black lines are admitted between the indetification line and the sequence line, neighter between genes.
 
+A valid file is given by the following example listing 4 genes from 2 genomes:
+```
+NC_000913	b0001@NC_000913:1	thr operon leader peptide
+MKRISTTITTTITITTGNGAG
+NC_000913	b0024@NC_000913:1	uncharacterized protein
+MCRHSLRSDGAGFYQLAGCEYSFSAIKIAAGGQFLPVICAMAMKSHFFLISVLNRRLTLTAVQGILGRFSLF
+NC_002655	Z_RS03160@NC_002655:1	hok/gef family protein
+MLTKYALVAVIVLCLTVPGFTLLVGDSLCEFTVKERNIEFRAVLAYEPKK
+NC_002655	Z_RS03165@NC_002655:1	protein HokE
+MLTKYALVAVIVLCLTVLGFTLLVGDSLCEFTVKERNIEFKAVLAYEPKK
+```
+> IMPORTANT: make sure the gene identifiers are unique within the input file. Commonly used file formats used to share genome annotaitons do not require that different locus tags of the same gene must be unique.
+
+we suggest to use the following format to build unique gene identifiers:
+```
+gene_identifier@genome_identifier:unique_integer
+```
+The fields `gene_identifier` and `genome_identifier` are the same reported in the input file, while the `unique_integer` is used to disitrnghuish multiple copies of the same gene (same gene identifier) wihtin the same genome. The integer starts from 1 and it is incremented according to the order gene are written in the input file.
+
+
 The examples provided in the `examples` folder generate 4 different dataset files, having the `.faa` extension, which can be consulted.
 
 <hr />
 
 ### Output format
 The exectution of PanDelos produces an outpu file named `[out_prefix].clus` which reports the gene families retrieved by the software.
-Each row of the output file represented a specific gene family. 
-
-Output identifiers are built wiht the following format:
-```
-gene_identifier@genome_identifier:unique_integer
-```
-
-The fields `gene_identifier` and `genome_identifier` are the same reported in the input file, while the `unique_integer` is used to disitrnghuish multiple copies of the same gene (same gene identifier) wihtin the same genome. The integer starts from 1 and it is incremented according to the order gene are written in the input file.
-
+Each row of the output file represented a specific gene family retrieved by PanDelos.
 
 <hr />
 
