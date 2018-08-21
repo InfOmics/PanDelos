@@ -37,7 +37,7 @@ MLTKYALVAVIVLCLTVLGFTLLVGDSLCEFTVKERNIEFKAVLAYEPKK
 ```
 > IMPORTANT: make sure the gene identifiers are unique within the input file. Commonly used file formats used to share genome annotaitons do not require that different locus tags of the same gene must be unique.
 
-we suggest to use the following format to build unique gene identifiers:
+We suggest to use the following format to build unique gene identifiers:
 ```
 gene_identifier@genome_identifier:unique_integer
 ```
@@ -110,3 +110,4 @@ If you have used any of the PanDelos project software, please cite the following
 
      Bonnici, V., Giugno, R., Manca, V.
      PanDelos: a dictionary-based method for pan-genome content discovery
+     To appear in BMC Bioinformatics, 2018.
