@@ -10,7 +10,7 @@ seq2genome = dict()
 seq2descr = dict()
 allseqs = set()
 allgenomes = set()
-
+genomeSeqCount = dict()
 
 l = 0
 for line in open(idb, 'r'):
@@ -20,6 +20,7 @@ for line in open(idb, 'r'):
 		seq2descr[ cc[1] ] = cc[2]
 		allseqs.add(cc[1])
 		allgenomes.add(cc[0])
+		genomeSeqCount[cc[0]] = genomeSeqCount.get(cc[0],0) + 1
 	l += 1
 
 
@@ -81,6 +82,10 @@ print("-"*40)
 print("nof genomes", len(allgenomes))
 print("nof seqs", len(allseqs))
 print("nof reads", int(l/2))
+print("-"*20)
+print("nof seqs of each genome")
+for g in sorted(allgenomes):
+	print(g,genomeSeqCount.get(g,0))
 
 print("-"*40)
 print("cluster size distribution")
