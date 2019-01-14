@@ -19,10 +19,11 @@ def read_gbk(ifile, genome_id):
     genome_cdslist = genome2cdstag.get(genome_id, list())
 
     for record in SeqIO.parse(ifile, "genbank"):
-        print("\t"+str(record.id))
         sequence_id = record.id 
+        genome_id = record.annotations['accessions'][-1]
+        print("\t"+genome_id+"\t"+sequence_id)
         for feature in record.features:
-            print(feature)
+            #print(feature)
             if (feature.type == 'source'):
                 genome_length[genome_id] = genome_length.get(genome_id, 0) + feature.location.end
             elif (feature.type == 'CDS'):
