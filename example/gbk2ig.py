@@ -15,17 +15,19 @@ cdsseqs = dict()
 
 
 def read_gbk(ifile, genome_id):
+    print(genome_id)
     genome_cdslist = genome2cdstag.get(genome_id, list())
 
     for record in SeqIO.parse(ifile, "genbank"):
-        #print(record.id)
+        print("\t"+str(record.id))
+        sequence_id = record.id 
         for feature in record.features:
-            #print(feature)
+            print(feature)
             if (feature.type == 'source'):
                 genome_length[genome_id] = genome_length.get(genome_id, 0) + feature.location.end
             elif (feature.type == 'CDS'):
                 if ('translation' in feature.qualifiers):
-                    tag = (genome_id, feature.qualifiers['locus_tag'][0])
+                    tag = (genome_id, sequence_id, feature.qualifiers['locus_tag'][0])
                     genome_cdslist.append(tag)
                     cdstag2genome[tag] = genome_id
                     cdsseqs[tag] = feature.qualifiers['translation'][0]
@@ -49,10 +51,12 @@ uniques = dict()
 print('writing to', ofile)
 with open(ofile, 'w') as off:
 	for k in sorted(cdsseqs.keys()):
-		if k[0] not in uniques:
-			uniques[ k[0] ] = dict()
-		uniques[k[0]][k[1]] = uniques[k[0]].get(k[1],0) + 1
-		cc = uniques[k[0]][k[1]]
+		gen_id = k[0]+":"+k[1]
+		if gen_id not in uniques:
+			uniques[ gen_id ] = dict()
+		uniques[ gen_id ][k[2]] = uniques[ gen_id ].get(k[2],0) + 1
+		cc = uniques[ gen_id ][k[2]]
+		acc = k[0]+":"+k[1]+":"+k[2]+":"+str(cc)
 		#off.write(k[0]+"\t"+k[1]+"\t"+ cdstag2product[k] +"\n")
-		off.write(k[0]+"\t"+ k[1]+'@'+k[0]+':'+str(cc) +"\t"+ cdstag2product[k] +"\n")
+		off.write(k[0]+"\t"+ acc +"\t"+ cdstag2product[k] +"\n")
 		off.write(cdsseqs[k]+"\n")
