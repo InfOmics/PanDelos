@@ -110,4 +110,4 @@ If you have used any of the PanDelos project software, please cite the following
 
      Bonnici, V., Giugno, R., Manca, V.
      PanDelos: a dictionary-based method for pan-genome content discovery
-     To appear in BMC Bioinformatics, 2018.
+     BMC bioinformatics 19.15 (2018): 437.
