@@ -9,7 +9,7 @@ iseqs = sys.argv[1]
 inet = sys.argv[2]
 
 #seq_names = list()
-seq_names = dict()
+seq_names = dict()  #id -> name
 seq_genome = dict()
 seq_descr = dict()
 genomes = dict()
@@ -138,6 +138,11 @@ def print_family_descriptions(fam):
         print('-')
 
 
+
+remaining_singletons = set()
+for g in seq_names.keys():
+	remaining_singletons.add(g)
+
 fnodes = set()
 coms_size_distr = dict()
 nof_coms = 0
@@ -154,13 +159,21 @@ for coco in nx.algorithms.components.connected_components(pnet):
 			coms_size_distr[ len(com) ] = coms_size_distr.get(len(com),0)+1
 			#print("com", sorted(com))
 			print_family(com)
+			for g in com:
+				remaining_singletons.remove(g)
 			print_family_descriptions(com)
 	else:
 		nof_coms += 1
 		coms_size_distr[ len(coco) ] = coms_size_distr.get(len(coco),0)+1
 		#print("coco", sorted(coco))
 		print_family(coco)
+		for g in coco:
+			remaining_singletons.remove(g)
 		print_family_descriptions(coco)
+
+for g in remaining_singletons:
+	print("F{ "+seq_names[g]+" }")
+
 
 for k,v in sorted(coms_size_distr.items()):
     print(k,v)
