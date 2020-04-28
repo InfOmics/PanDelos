@@ -54,7 +54,7 @@ public class Pangenes {
 			for(int g1=0; g1<nofGenomes; g1++){
 				//for(int g2=g1; g2<pid.genomeNames.size(); g2++){
 				for(int g2=g1+1; g2<nofGenomes; g2++){
-					System.out.println("##\t"+g1+"\t"+g2);
+					//System.out.println("##\t"+g1+"\t"+g2);
 					
 					Vector<Integer> allowedSequences = new Vector<Integer>();
 					allowedSequences.addAll(genomeSets.get(g1));
@@ -244,9 +244,9 @@ public class Pangenes {
 						/* calcolate threshold for inter non-bbh */
 						double inter_thr = inter_thr_sum / inter_thr_count; 
 						
-						System.out.println("score\t"+inter_thr +"\t"+ inter_min_score +"\t"+ inter_max_score);
-						System.out.println("perc\t"+inter_min_perc +"\t"+ inter_max_perc);
-						System.out.println(pnet.countNodes()+"\t"+pnet.countEdges());
+						//System.out.println("score\t"+inter_thr +"\t"+ inter_min_score +"\t"+ inter_max_score);
+						//System.out.println("perc\t"+inter_min_perc +"\t"+ inter_max_perc);
+						//System.out.println(pnet.countNodes()+"\t"+pnet.countEdges());
 						
 						
 						/* get identical paralogs */
@@ -299,7 +299,7 @@ public class Pangenes {
 						}
 						
 						
-						System.out.println(pnet.countNodes()+"\t"+pnet.countEdges());
+						//System.out.println(pnet.countNodes()+"\t"+pnet.countEdges());
 					}
 					
 				}
