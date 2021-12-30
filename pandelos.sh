@@ -6,7 +6,7 @@ echo "#-------------------------------------------------------------------------
 echo "# Bonnici et. al                                                               #"
 echo "#==============================================================================#"
 echo "# This software is under MIT license!                                          #"
-echo "# Please visit https://github.com/GiugnoLab/PanDelos                           #"
+echo "# Please visit https://github.com/InfOmics/PanDelos                            #"
 echo "################################################################################"
 
 
@@ -88,7 +88,7 @@ echo "#-------------------------------------------------------------------------
 echo "# Bonnici et. al                                                               #"
 echo "#==============================================================================#"
 echo "# This software is under MIT license!                                          #"
-echo "# Please visit https://github.com/GiugnoLab/PanDelos                           #"
+echo "# Please visit https://github.com/InfOmics/PanDelos                            #"
 echo "################################################################################"
 
 
