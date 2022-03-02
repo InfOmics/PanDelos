@@ -10,7 +10,7 @@ The PanDelos software is organized in 2 python modules and a Java library that a
 The bash script, `pandelos.sh`, provides the acces point the the PanDelos pipeline.
 
 ```
-bash pandelos.hs <input.faa> <output_prefix>
+bash pandelos.sh <input.faa> <output_prefix>
 ```
 
 <hr />
