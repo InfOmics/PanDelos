@@ -280,7 +280,7 @@ public class Pangenes {
 						for(int i=0; i<genomeSets.get(g1).size(); i++){
 							if(engagged[i]){
 								for(int j=i+1; j<genomeSets.get(g1).size(); j++){
-									if(scores[i][j] == max_intra_score[i] && scores[i][j] == max_intra_score[j] && scores[i][j] >= inter_max_score){
+									if(scores[i][j]>0.0 && scores[i][j] == max_intra_score[i] && scores[i][j] == max_intra_score[j] && scores[i][j] >= inter_max_score){
 										pnet.addConnection( mapLocal2Global[i] , mapLocal2Global[j], scores[i][j]);
 									}
 								}
@@ -291,7 +291,7 @@ public class Pangenes {
 						for(int i=genomeSets.get(g1).size(); i<scores.length; i++){
 							if(engagged[i]){
 								for(int j=genomeSets.get(g1).size(); j<scores.length; j++){
-									if(scores[i][j] == max_intra_score[i] && scores[i][j] == max_intra_score[j] && scores[i][j] >= inter_max_score){
+									if(scores[i][j]>0.0 && scores[i][j] == max_intra_score[i] && scores[i][j] == max_intra_score[j] && scores[i][j] >= inter_max_score){
 										pnet.addConnection( mapLocal2Global[i] , mapLocal2Global[j], scores[i][j]);
 									}
 								}
