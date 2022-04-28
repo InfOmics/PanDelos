@@ -20,7 +20,7 @@ def read_gbk(ifile, genome_id):
 
     for record in SeqIO.parse(ifile, "genbank"):
         sequence_id = record.id 
-        genome_id = record.annotations['accessions'][-1]
+        #genome_id = record.annotations['accessions'][-1]
         print("\t"+genome_id+"\t"+sequence_id)
         for feature in record.features:
             #print(feature)
