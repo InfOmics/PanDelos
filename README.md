@@ -72,10 +72,10 @@ The compilation requires that the command `javac` and `jar` are located in your 
 <hr />
 
 ## Running the examples
-The script `run_examples.sh` inside the `examples` forlder will run the benchmarks that have been used in the scientific article of PanDelos.
+The script `run_examples.sh` inside the `examples` folder will run the benchmarks that have been used in the scientific article of PanDelos.
 
 ```
-cd examples
+cd example
 bash run_examples.sh
 ```
 
