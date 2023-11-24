@@ -57,7 +57,8 @@ if [ -z "$oprefix" ]; then
 fi
 
 
-tmp=`mktemp -p ./`
+#tmp=`mktemp -p ./`
+tmp=`mktemp  | xargs basename`
 echo "working on $tmp"
 dnet="${tmp}.net"
 clus="${oprefix}.clus"
