@@ -59,7 +59,7 @@ Each row of the output file represented a specific gene family retrieved by PanD
 PanDelos can run on any operating system where Bash, Python 3 (or higher) and Java SE RunTime 8 (or higher) have been previously installed.
 
 ### Compiling the Java source code
-The current repository contains a pre-compiled version of the interal Java labrary needed by PanDelos. The library has been pre-compiled with Java 8, however it can be compiled on the user system by runnig the script `compile.sh` inside the `ig` folder. In case of success, the script replaces the `ig.jar` with a new version. 
+The current repository contains a pre-compiled version of the internal Java library needed by PanDelos. The library has been pre-compiled with Java 8, however, it can be compiled on the user system by running the script `compile.sh` inside the `ig` folder. In case of success, the script replaces the `ig.jar` with a new version. 
 
 Alternatively, you may run the following instruction form the `ig` folder:
 
@@ -67,12 +67,12 @@ Alternatively, you may run the following instruction form the `ig` folder:
 javac -classpath ext/commons-io-2.6.jar  -sourcepath ./ infoasys/cli/pangenes/Pangenes.java
 jar cvf ig.jar infoasys/
 ```
-The compilation requires that the command `javac` and `jar` are located in your stystem folders.
+The compilation requires that the commands `javac` and `jar` are located in your system folders.
 
 <hr />
 
 ## Running the examples
-The script `run_examples.sh` inside the `examples` folder will run the benchmarks that have been used in the scientific article of PanDelos.
+The script `run_examples.sh` inside the `examples` folder will run the benchmarks used in the scientific article of PanDelos.
 
 ```
 cd example
@@ -86,10 +86,10 @@ Benchmarks regard 4 datasets from which the pan-genome content has been extracte
 * 64 Mycoplasma
 
 The identifiers of the isolates are stored in the `.list.txt` files.
-Genomes are downloaded from the NCBI repoitories by means of the `download.sh` sciprt in the form of GenBank `gbk` files.
-The [efecth](https://www.ncbi.nlm.nih.gov/books/NBK179288/) tool, available via the Entrez E-Utilities toolkit, must be installed in order to download the required genome files from the NCBI database.
+Genomes are downloaded from the NCBI repositories by means of the `download.sh` script in the form of GenBank `gbk` files.
+The [efetch](https://www.ncbi.nlm.nih.gov/books/NBK179288/) tool, available via the Entrez E-Utilities toolkit, must be installed in order to download the required genome files from the NCBI database.
 The script `gbk2ig.py` merge the gbk files and produces a single benchmark file that is used as input for the PanDelos pipeline.
-The script `quality.py` calculates statistics about th eextracted pan-genome content and print them.
+The script `quality.py` calculates statistics about the extracted pan-genome content and prints them.
 
 <hr />
 
@@ -100,7 +100,7 @@ The script `gbk2ig.py` (located inside the `examples` folder) can also be used t
 
 ## License
 PanDelos is distributed under the MIT license. This means that it is free for both academic and commercial use. Note however that some third party components in PanDelos require that you reference certain works in scientific publications.
-You are free to link or use PanDelos inside source code of your own program. If do so, please reference (cite) PanDelos and this website. We appreciate bug fixes and would be happy to collaborate for improvements. 
+You are free to link or use PanDelos inside the source code of your own program. If do so, please reference (cite) PanDelos and this website. We appreciate bug fixes and would be happy to collaborate for improvements. 
 [License](https://raw.githubusercontent.com/GiugnoLab/PanDelos/master/LICENSE)
 
 <hr />
